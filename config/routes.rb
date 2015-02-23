@@ -5,12 +5,12 @@ Rails.application.routes.draw do
   post   'login',  to: 'sessions#create'
   delete 'logout', to: 'sessions#destroy'
 
-  resources :users do
-    resources :urls, except: [:edit, :update]
-  end
+  resources :users
+  resources :urls, except: [:edit, :update]
 
+  get '/:slug' => 'urls#redirect'
 
-
+  # resources :urls, param: :slug
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
