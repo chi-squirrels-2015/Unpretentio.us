@@ -1,6 +1,7 @@
 class UrlsController < ApplicationController
 
   def show
+    @url = Url.find_by(uid: params[:id])
   end
 
   def create
