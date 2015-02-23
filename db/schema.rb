@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 20150223171145) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "urls", force: true do |t|
+  create_table "urls", id: false, force: true do |t|
     t.string   "uid"
     t.integer  "user_id"
     t.string   "origin"

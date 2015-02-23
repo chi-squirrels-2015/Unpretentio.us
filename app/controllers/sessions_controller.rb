@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
     @user = User.authenticate(params[:user][:email], params[:user][:password])
     if @user
       session[:user_id] = @user.id
-      redirect_to "/"
+      redirect_to @user
     else
       render 'new'
     end

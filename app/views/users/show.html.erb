@@ -1,1 +1,5 @@
 user show
+<%= form_for [@user, @user.urls.build] do |f| %>
+  <%= f.text_field :origin, placeholder: "Original Link" %>
+  <%= f.submit value: "Shorten!" %>
+<% end %>
