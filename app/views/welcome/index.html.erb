@@ -1,3 +1,8 @@
-welcome index (root)
-<h1>Hello World!</h1>
+<h1>Unpretentio.us Links</h1>
+<h2>A refuge from ridiculously long links.</h2>
 
+<% if current_user%>
+  <%= render '/urls/form' %>
+<% else%>
+  <%= link_to "Become a Member", signup_path  %>
+<% end %>

@@ -2,7 +2,7 @@ class UsersController < ApplicationController
 
   def show
     @url = Url.new
-    @user = User.find(params[:id])
+    @urls = Url.all
   end
 
   def new

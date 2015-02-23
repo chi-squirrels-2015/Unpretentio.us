@@ -1,5 +1,13 @@
-user show
-<%= form_for @url do |f| %>
-  <%= f.text_field :origin, placeholder: "Original Link" %>
-  <%= f.submit value: "Shorten!" %>
-<% end %>
+<div class="container">
+  <%= render '/urls/form' %>
+</div>
+
+<div class="container">
+  <ul>
+    <% @urls.each do |url| %>
+      <li>
+        <%= link_to "unpretentio.us/#{url.uid}", "/#{url.uid}" %>
+      </li>
+    <% end %>
+  </ul>
+</div>
