@@ -3,6 +3,10 @@ class Url < ActiveRecord::Base
 
   before_validation :set_uid
   validates :uid, presence: true
+  validates :origin, presence: true
+  validates :user, presence: true
+
+  validates_uniqueness_of :origin, scope: :user_id
 
   private
   def set_uid

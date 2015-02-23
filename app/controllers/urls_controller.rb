@@ -4,7 +4,7 @@ class UrlsController < ApplicationController
   end
 
   def create
-    @url = Url.new(url_params)
+    @url = Url.new(origin: url_params[:origin], user: current_user)
     if @url.save
       redirect_to url_path(@url.uid)
     else
