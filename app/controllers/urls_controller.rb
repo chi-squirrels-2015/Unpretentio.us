@@ -5,14 +5,19 @@ class UrlsController < ApplicationController
   end
 
   def create
-    @url = Url.new(origin: url_params[:origin], user: current_user)
-    if @url.save
-      redirect_to url_path(@url.uid)
-    elsif @url.errors[:origin].any?
-      existing_url = Url.find_by(origin: url_params[:origin])
-      redirect_to url_path(existing_url.uid)
-    else
-      redirect_to current_user
+    url = Url.new(origin: url_params[:origin], user: current_user)
+
+    respond_to do |format|
+      if url.save
+        format.html { redirect_to url_path(url.uid) }
+        # format.js   {}
+        # format.json { render json: url }
+      elsif url.errors[:origin].any?
+        existing_url = Url.find_by(origin: url_params[:origin])
+        redirect_to url_path(existing_url.uid)
+      else
+        redirect_to current_user
+      end
     end
   end
 
