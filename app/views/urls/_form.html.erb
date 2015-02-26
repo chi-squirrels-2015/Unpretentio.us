@@ -1,4 +1,6 @@
-<%= form_for @url do |f| %>
-  <%= f.text_field :origin, placeholder: "Place pretentious link here" %>
-  <%= f.submit value: "Unpretentiousfy!" %>
-<% end %>
+<div class="container">
+	<%= form_for(@url, remote: true) do |f| %>
+	  <%= f.text_field :origin, placeholder: "Place pretentious link here" %>
+	  <%= f.submit value: "Unpretentiousfy!" %>
+	<% end %>
+</div>
